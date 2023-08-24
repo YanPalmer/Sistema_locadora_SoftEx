@@ -1,0 +1,15 @@
+{
+  "name": "sistema_locadora_softex",
+  "version": "1.0.0",
+  "description": "Desenvolvimento de uma locadora com HTML e JavaScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.2.2"
+  }
+}
