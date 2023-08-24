@@ -4,7 +4,8 @@
   "description": "Desenvolvimento de uma locadora com HTML e JavaScript",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "ts-node-dev --respawn --transpile-only src/javascript.js"
   },
   "author": "",
   "license": "ISC",
