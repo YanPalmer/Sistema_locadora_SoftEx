@@ -4,10 +4,12 @@ const corInput = document.getElementById("cor");
 const valorInput = document.getElementById("valor");
 const botao = document.getElementById("botao");
 const carrosCadastrados = document.getElementById("carrosCadastrados");
+const carrosAlugados = document.getElementById("carrosAlugados");
 
 botao.addEventListener("click", cadastrarCarro);
 
 const listaDeCarros = [];
+const listaDeCarrosAlugados = [];
 
 function cadastrarCarro() {
     const veiculo = {
@@ -25,17 +27,31 @@ function renderizarLista() {
     carrosCadastrados.innerHTML = "";
     listaDeCarros.forEach((carro, index) => {
         const ul = document.createElement("ul");
-        console.log(carro, index)
+        // console.log(carro, index)
         ul.innerHTML = `
             <li>${carro.marca}</li>
             <li>${carro.ano}</li>
             <li>${carro.cor}</li>
             <li>${carro.valor}</li>
-            <button class="botaoAlugar">Alugar</button>
+            <button class="botaoAlugar" data-index="${index}">Alugar</button>
             <button class="botaoExcluir" data-index="${index}">Excluir</button>
         `;
-
         carrosCadastrados.appendChild(ul);
+
+    });
+    carrosAlugados.innerHTML = "";
+    listaDeCarrosAlugados.forEach((carro, index) => {
+        const ul = document.createElement("ul");
+        // console.log(carro, index);
+        ul.innerHTML = `
+        <li>${carro.marca}</li>
+        <li>${carro.ano}</li>
+        <li>${carro.cor}</li>
+        <li>${carro.valor}</li>
+        <button class="botaoRecadastrar" data-index="${index}">Recadastrar</button>
+        <button class="botaoExcluir" data-index="${index}">Excluir</button>
+    `;
+        carrosAlugados.appendChild(ul);
     });
 }
 
@@ -52,16 +68,24 @@ carrosCadastrados.addEventListener("click", event => {
     // console.log("event.target.classList", event.target.classList);
     // console.log(`event.target.classList.contains("botaoExluir")`,event.target.classList.contains("botaoExcluir"));
     if (event.target.classList.contains("botaoAlugar")) {
-        // Lógica para alugar carro
+        const index = event.target.getAttribute("data-index");
+        console.log(index);
+        alugarCarro(index);
     } else if (event.target.classList.contains("botaoExcluir")) {
         const index = event.target.getAttribute("data-index");
         excluirCarro(index);
-        // Lógica para excluir carro
     }
 });
 
 function excluirCarro(index) {
     listaDeCarros.splice(index, 1);
+    renderizarLista();
+}
+
+function alugarCarro(index) {
+    const carroAlugado = listaDeCarros[index];
+    listaDeCarros.splice(index, 1);
+    listaDeCarrosAlugados.push(carroAlugado);
     renderizarLista();
 }
 
