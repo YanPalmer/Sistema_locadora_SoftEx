@@ -1,4 +1,4 @@
-const input = document.getElementById("input");
+const input = document.getElementById("input"); // yan
 const botao = document.getElementById("botao");
 const lista = document.getElementById("lista");
 

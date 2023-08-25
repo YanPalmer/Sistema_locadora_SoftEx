@@ -30,6 +30,15 @@ div#centro {
     align-items: center;
 }
 
+#centro #cadastros #carrosCadastrados ul {
+    list-style-type: none;
+    background-color: rgb(92, 88, 88);
+    padding: 10px;
+}
+#centro #cadastros #carrosCadastrados ul li {
+    padding: 4px;
+}
+
 div#cadastroDeCarros {
     position: relative;
     display: flex;
@@ -42,4 +51,4 @@ div#cadastroDeCarros input {
     padding: 4px;
 }
 
-body ol li {}
+/* body ol li {} */
