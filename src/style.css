@@ -34,9 +34,17 @@ div#centro {
     list-style-type: none;
     background-color: rgb(92, 88, 88);
     padding: 10px;
+    margin-top: 5px;
+    border-radius: 20px;
 }
 #centro #cadastros #carrosCadastrados ul li {
     padding: 4px;
+}
+#centro #cadastros #carrosCadastrados ul button {
+    width: 90%;
+    height: 25px;
+    padding: 4px;
+    margin: 4px;
 }
 
 div#cadastroDeCarros {

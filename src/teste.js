@@ -1,3 +1,73 @@
+const marcaInput = document.getElementById("marca");
+const anoInput = document.getElementById("ano");
+const corInput = document.getElementById("cor");
+const valorInput = document.getElementById("valor");
+const botao = document.getElementById("botao");
+const carrosCadastrados = document.getElementById("carrosCadastrados");
+
+botao.addEventListener("click", cadastrarCarro);
+
+const listaDeCarros = [];
+
+function cadastrarCarro() {
+    const veiculo = {
+        marca: marcaInput.value,
+        ano: anoInput.value,
+        cor: corInput.value,
+        valor: valorInput.value
+    };
+    listaDeCarros.push(veiculo);
+    renderizarLista();
+    limparInputs();
+}
+
+function renderizarLista() {
+    carrosCadastrados.innerHTML = "";
+    listaDeCarros.forEach((carro, index) => {
+        const ul = document.createElement("ul");
+        console.log(carro, index)
+        ul.innerHTML = `
+            <li>${carro.marca}</li>
+            <li>${carro.ano}</li>
+            <li>${carro.cor}</li>
+            <li>${carro.valor}</li>
+            <button class="botaoAlugar">Alugar</button>
+            <button class="botaoExcluir" data-index="${index}">Excluir</button>
+        `;
+
+        carrosCadastrados.appendChild(ul);
+    });
+}
+
+function limparInputs() {
+    marcaInput.value = "";
+    anoInput.value = "";
+    corInput.value = "";
+    valorInput.value = "";
+}
+
+carrosCadastrados.addEventListener("click", event => {
+    // console.log("event", event);
+    // console.log("event.target", event.target);
+    // console.log("event.target.classList", event.target.classList);
+    // console.log(`event.target.classList.contains("botaoExluir")`,event.target.classList.contains("botaoExcluir"));
+    if (event.target.classList.contains("botaoAlugar")) {
+        // Lógica para alugar carro
+    } else if (event.target.classList.contains("botaoExcluir")) {
+        const index = event.target.getAttribute("data-index");
+        excluirCarro(index);
+        // Lógica para excluir carro
+    }
+});
+
+function excluirCarro(index) {
+    listaDeCarros.splice(index, 1);
+    renderizarLista();
+}
+
+
+/*
+
 const marca = document.getElementById("marca") //UNO
 const ano = document.getElementById("ano"); //2000
 const cor = document.getElementById("cor"); //Verde
@@ -51,11 +121,22 @@ function renderizarLista() {
         // <li>Uno</li>
         itemValor.innerHTML = carro.valor;
 
+        const botaoAlugar = document.createElement("button");
+        // <button></button>
+        botaoAlugar.id = "botaoAlugar";
+        // <button id="botaoAlugar"></button>
+        botaoAlugar.innerHTML = "Alugar";
+
+        const botaoExcluir = document.createElement("button");
+        botaoExcluir.id = "botaoExcluir";
+        botaoExcluir.innerHTML = "Excluir";
 
         ul.appendChild(itemMarca);
         ul.appendChild(itemAno);
         ul.appendChild(itemCor);
         ul.appendChild(itemValor);
+        ul.appendChild(botaoAlugar);
+        ul.appendChild(botaoExcluir);
 
         carrosCadastrados.appendChild(ul);
     }
