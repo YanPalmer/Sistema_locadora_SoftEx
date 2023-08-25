@@ -1,24 +1,42 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Locadora de carros</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <header>
         <h1>Locadora de carros</h1>
     </header>
 
-    <div>
-        <input id="input" type="text">
-        <button id="botao" type="button">Adicionar</button>
+    <div id="centro">
+        <div id="carrosCadastrados">
+            carrosCadastrados
+        </div>
+
+        <div id="cadastroDeCarros">
+            <input type="text" placeholder="Marca do carro:">
+            <input type="text" placeholder="Ano:">
+            <input type="text" placeholder="Cor do carro:">
+            <input type="text" placeholder="Valor:">
+            <input id="input" type="text">
+            <button id="botao" type="button">Adicionar</button>
+        </div>
+
+        <div id="carrosAlugados">
+            carrosAlugados
+        </div>
     </div>
+
 
     <ol id="lista">
     </ol>
 
     <script src="./javascript.js"></script>
 </body>
+
 </html>
