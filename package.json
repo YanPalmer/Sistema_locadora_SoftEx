@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Desenvolvimento de uma locadora com HTML e JavaScript",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "ts-node-dev --respawn --transpile-only src/javascript.js"

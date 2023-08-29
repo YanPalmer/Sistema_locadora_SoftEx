@@ -1,3 +1,5 @@
+import { excluirCarroAlugado, recadastrarCarro } from "./javascript.js";
+
 const marcaInput = document.getElementById("marca");
 const anoInput = document.getElementById("ano");
 const corInput = document.getElementById("cor");
@@ -8,8 +10,8 @@ const carrosAlugados = document.getElementById("carrosAlugados");
 
 botao.addEventListener("click", cadastrarCarro);
 
-const listaDeCarros = [];
-const listaDeCarrosAlugados = [];
+export const listaDeCarros = [];
+export const listaDeCarrosAlugados = [];
 
 function cadastrarCarro() {
     const veiculo = {
@@ -23,7 +25,7 @@ function cadastrarCarro() {
     limparInputs();
 }
 
-function renderizarLista() {
+export function renderizarLista() {
     carrosCadastrados.innerHTML = "";
     listaDeCarros.forEach((carro, index) => {
         const ul = document.createElement("ul");
@@ -76,6 +78,21 @@ carrosCadastrados.addEventListener("click", event => {
         excluirCarro(index);
     }
 });
+
+carrosAlugados.addEventListener("click", event2 => {
+    console.log("event", event2);
+    console.log("event.target", event2.target);
+    console.log("event.target.classList", event2.target.classList);
+    console.log(`event.target.classList.contains("botaoRecadastrar")`,event2.target.classList.contains("botaoRecadastrar"));
+    if (event2.target.classList.contains("botaoRecadastrar")) {
+        const index2 = event2.target.getAttribute("data-index");
+        console.log(index2);
+        recadastrarCarro(index2);
+    } else if (event2.target.classList.contains("botaoExcluir")) {
+        const index2 = event2.target.getAttribute("data-index");
+        excluirCarroAlugado(index2);
+    }
+})
 
 function excluirCarro(index) {
     listaDeCarros.splice(index, 1);
