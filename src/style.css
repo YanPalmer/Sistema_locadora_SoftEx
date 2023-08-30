@@ -30,6 +30,21 @@ div#centro {
     align-items: center;
 }
 
+#centro div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 345px;
+}
+
+#centro div div ul {
+    width: 80%;
+}
+
+#centro h3 {
+    font-size: 2.5em;
+}
+
 #centro #cadastros #carrosCadastrados ul {
     list-style-type: none;
     background-color: rgb(92, 88, 88);
@@ -72,10 +87,21 @@ div#cadastroDeCarros {
     position: relative;
     display: flex;
     flex-direction: column;
+    align-items: center;
+}
+
+div#cadastroDeCarros button {
+    position: relative;
+    width: 70%;
+    height: 2.5em;
+    border: 1px solid gray;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px black;
 }
 
 div#cadastroDeCarros input {
     position: relative;
+    width: 80%;
     margin: 3px;
     padding: 4px;
 }

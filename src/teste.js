@@ -1,4 +1,4 @@
-import { excluirCarroAlugado, recadastrarCarro } from "./javascript.js";
+import { excluirCarroAlugado, recadastrarCarro } from "./recadastrarCarro.js";
 
 const marcaInput = document.getElementById("marca");
 const anoInput = document.getElementById("ano");
@@ -80,10 +80,10 @@ carrosCadastrados.addEventListener("click", event => {
 });
 
 carrosAlugados.addEventListener("click", event2 => {
-    console.log("event", event2);
-    console.log("event.target", event2.target);
-    console.log("event.target.classList", event2.target.classList);
-    console.log(`event.target.classList.contains("botaoRecadastrar")`,event2.target.classList.contains("botaoRecadastrar"));
+    // console.log("event", event2);
+    // console.log("event.target", event2.target);
+    // console.log("event.target.classList", event2.target.classList);
+    // console.log(`event.target.classList.contains("botaoRecadastrar")`,event2.target.classList.contains("botaoRecadastrar"));
     if (event2.target.classList.contains("botaoRecadastrar")) {
         const index2 = event2.target.getAttribute("data-index");
         console.log(index2);
